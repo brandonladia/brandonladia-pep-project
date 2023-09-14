@@ -19,7 +19,7 @@ public Account addUser(Account account){
     }
 
 //logins
-public void newlogin(){
+public void processlogin(){
     Connection conn = ConnectionUtil.getConnection();
 }
 }

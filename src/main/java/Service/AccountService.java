@@ -17,7 +17,7 @@ public class AccountService {
     }
 
 //use accountDAO to register new user
-    public Account registerUser(Account account){
+    public Account addUser(Account account){
 
         return account;
     }
