@@ -17,10 +17,7 @@ import Service.SocialMediaService;
  */
 public class SocialMediaController {
 //adding stuff
-    SocialMediaService socialMediaService;
-    public SocialMediaController(){
-        socialMediaService = new SocialMediaService();
-    }
+
 //created above stuff
 
     /**
@@ -46,6 +43,7 @@ public class SocialMediaController {
      */
     public Javalin startAPI() {
         Javalin app = Javalin.create();
+        
         //creating endpoints below
         app.post("/register", );
         app.post("/login", );
