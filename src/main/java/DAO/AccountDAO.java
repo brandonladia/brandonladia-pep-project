@@ -28,6 +28,7 @@ public Account addAccount(Account account){
         if(pkeyResultSet.next()){
 //                         is it getInt() or getLong() IS ITTTTTT OR NOTTTTTT
             int generated_account_id = (int) pkeyResultSet.getInt(1);
+//                         neeed to knkow
             return new Account(generated_account_id, account.getUsername(), account.getPassword());
         }
 
