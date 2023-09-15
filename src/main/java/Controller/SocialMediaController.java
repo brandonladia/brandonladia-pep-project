@@ -59,7 +59,7 @@ public class SocialMediaController {
         // app.post("/login", this::postLoginHandler);
         // app.post("/messages", this::postMessagesHandler);
         app.get("/messages", this::getAllMessagesHandler);
-        // app.get("/messages/{message_id}", this::getMessagesByIdHandler);
+        app.get("/messages/{message_id}", this::getMessagesByIdHandler);
         // app.delete("/messages/{message_id}", this::deleteMessagesByIdHandler);
         // app.patch("/messages/{message_id}", this::updateMessagesByIdHandler);
         // app.get("/accounts/{account_id}/messages", this::getMessagesbyUserHandler);
@@ -90,6 +90,11 @@ public class SocialMediaController {
     }
 
     //implement getMessagesByIdHandler
+    private void getMessagesByIdHandler(Context ctx){
+    //so we can use "id" with json
+        int id = Integer.parseInt(ctx.pathParam("id"));
+        ctx.json(messageService.getMessageByID(id));
+    }
 
     //implement deleteMessagesByIdHandler
 
