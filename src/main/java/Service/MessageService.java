@@ -19,6 +19,9 @@ public class MessageService {
     }
 
 //create new message
+    public Message creatMessage(Message message){
+        return messageDAO.createMessage(message);
+    }
 
 //retrieve all messages
     public List<Message> getAllMessages(){
