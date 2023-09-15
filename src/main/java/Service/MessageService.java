@@ -22,7 +22,7 @@ public class MessageService {
 
 //retrieve all messages
     public List<Message> getAllMessages(){
-        return null;
+        return messageDAO.getAllMessages();
     }
     
 //retrieve message by ID

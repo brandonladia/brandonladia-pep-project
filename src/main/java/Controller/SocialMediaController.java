@@ -4,6 +4,8 @@ package Controller;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
+import java.util.List;
+
 //import other stuff
 import Model.Account;
 import Model.Message;
@@ -23,8 +25,8 @@ public class SocialMediaController {
     MessageService messageService;
 
     public SocialMediaController(){
-        this.accountService = new AccountService();
-        this.messageService = new MessageService();
+        accountService = new AccountService();
+        messageService = new MessageService();
     }
 //created above stuff
 
@@ -56,7 +58,7 @@ public class SocialMediaController {
         // app.post("/register", this::postRegisterHandler);
         // app.post("/login", this::postLoginHandler);
         // app.post("/messages", this::postMessagesHandler);
-        // app.get("/messages", this::getMessagesHandler);
+        app.get("/messages", this::getAllMessagesHandler);
         // app.get("/messages/{message_id}", this::getMessagesByIdHandler);
         // app.delete("/messages/{message_id}", this::deleteMessagesByIdHandler);
         // app.patch("/messages/{message_id}", this::updateMessagesByIdHandler);
@@ -65,6 +67,7 @@ public class SocialMediaController {
 
         //example here  app.get("example-endpoint", this::exampleHandler);
         return app;
+//       app.start(8080);
     }
 
     /**
@@ -73,6 +76,14 @@ public class SocialMediaController {
      */
     private void exampleHandler(Context context) {
         context.json("sample text");
+    }
+
+    //implement register user handler
+
+    //temporarily implementing get all messages
+    public void getAllMessagesHandler(Context ctx){
+        List<Message> messages = messageService.getAllMessages();
+        ctx.json(messages);
     }
 
 

@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.h2.command.Prepared;
+
 import Model.Message;
 import Util.ConnectionUtil;
 
@@ -87,6 +89,19 @@ public class MessageDAO {
     }
 
 //delete a message by ID
+    public Message deleteMessageByID(){
+        Connection conn = ConnectionUtil.getConnection();
+        String sql = "DELETE * FROM message WHERE message_id = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 //update a message by ID
 
