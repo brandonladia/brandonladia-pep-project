@@ -40,7 +40,7 @@ public class MessageDAO {
 //retrieve all messages
     public List<Message> getAllMessages(){
         Connection conn = ConnectionUtil.getConnection();
-        List<Message> messages = new ArrayList<>();
+        List<Message> messageList = new ArrayList<>();
         String sql = "SELECT * FROM message";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -52,14 +52,14 @@ public class MessageDAO {
                     rs.getString("message_text"),
                     rs.getLong("time_posted_epoch")
                 );
-                messages.add(message);
+                messageList.add(message);
             }
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return messages;
+        return messageList;
     }
 
 //retrieve a message by ID
@@ -91,10 +91,28 @@ public class MessageDAO {
 //update a message by ID
 
 //retrieve all messages from a particular user
-    public List<Message> getAllMessagesFromUser(){
+    public List<Message> getAllMessagesFromUser(int id){
         Connection conn = ConnectionUtil.getConnection();
+        List<Message> messageList = new ArrayList<>();
+        String sql = "SELECT * FROM message WHERE posted_by = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
 
-        return null;
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Message message = new Message(
+                    rs.getInt("message_id"),
+                    rs.getInt("posted_by"),
+                    rs.getString("message_text"),
+                    rs.getLong("time_posted_epoch"));
+                    messageList.add(message);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return messageList;
     }
 
 }
