@@ -18,8 +18,7 @@ public class AccountService {
 
 //use accountDAO to register new user
     public Account addAccount(Account account){
-
-        return account;
+        return accountDAO.addAccount(account);
     }
 //process new login. maybe change name
     public void processLogin(){
