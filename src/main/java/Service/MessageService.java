@@ -39,5 +39,9 @@ public class MessageService {
 //update message text identified by ID
 
 //retrieve all messages written by a particular user
+    public List<Message> getAllMessagesFromUser(int id){
+        List<Message> userMessages = messageDAO.getAllMessagesFromUser(id);
+        return userMessages;
+    }
 
 }
