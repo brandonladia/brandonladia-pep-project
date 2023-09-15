@@ -78,15 +78,24 @@ public class SocialMediaController {
         context.json("sample text");
     }
 
-    //implement register user handler "addAccount()"
+    //implement postRegisterHandler "addAccount()"
 
-    //implement createMessage() handler
+    //implement postLoginHandler
 
-    //implementing get all messages
+    //implement postMessagesHandler "createMessage()"
+
+    //implement getAllMessagesHandler
     private void getAllMessagesHandler(Context ctx){
         List<Message> messages = messageService.getAllMessages();
         ctx.json(messages);
     }
 
+    //implement getMessagesByIdHandler
+
+    //implement deleteMessagesByIdHandler
+
+    //implement updateMessagesByIdHandler
+
+    //implement getMessagesbyUserHandler
 
 }
