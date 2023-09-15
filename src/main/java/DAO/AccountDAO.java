@@ -26,7 +26,7 @@ public Account addAccount(Account account){
         ps.executeUpdate();
         ResultSet pkeyResultSet = ps.getGeneratedKeys();
         if(pkeyResultSet.next()){
-            //is it getInt() or getLong()
+//                         is it getInt() or getLong() IS ITTTTTT OR NOTTTTTT
             int generated_account_id = (int) pkeyResultSet.getInt(1);
             return new Account(generated_account_id, account.getUsername(), account.getPassword());
         }
