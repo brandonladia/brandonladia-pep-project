@@ -40,6 +40,18 @@ public class MessageDAO {
 //retrieve all messages
     public List<Message> getAllMessages(){
         Connection conn = ConnectionUtil.getConnection();
+        String sql = "SELECT * FROM message";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                
+            }
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         return null;
     }
