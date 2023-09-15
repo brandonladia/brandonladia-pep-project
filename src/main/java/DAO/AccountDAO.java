@@ -11,17 +11,17 @@ import Util.ConnectionUtil;
 
 public class AccountDAO {
 
-//create connection
-Connection conn = ConnectionUtil.getConnection();
 
 //new users
 public Account addUser(Account account){
-    
+    Connection conn = ConnectionUtil.getConnection();
+
     return null;
     }
 
 //logins
 public void processlogin(){
-
+    Connection conn = ConnectionUtil.getConnection();
+    
 }
 }
