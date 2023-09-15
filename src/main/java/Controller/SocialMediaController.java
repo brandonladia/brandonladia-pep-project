@@ -26,7 +26,6 @@ public class SocialMediaController {
         this.accountService = new AccountService();
         this.messageService = new MessageService();
     }
-
 //created above stuff
 
     /**
@@ -54,14 +53,14 @@ public class SocialMediaController {
         Javalin app = Javalin.create();
         
         //creating endpoints below
-        // app.post("/register", );
-        // app.post("/login", );
-        // app.post("/messages", );
-        // app.get("/messages", );
-        // app.get("/messages/{message_id}", );
-        // app.delete("/messages/{message_id}", );
-        // app.patch("/messages/{message_id}", );
-        // app.get("/accounts/{account_id}/messages", );
+        // app.post("/register", this::postRegisterHandler);
+        // app.post("/login", this::postLoginHandler);
+        // app.post("/messages", this::postMessagesHandler);
+        // app.get("/messages", this::getMessagesHandler);
+        // app.get("/messages/{message_id}", this::getMessagesByIdHandler);
+        // app.delete("/messages/{message_id}", this::deleteMessagesByIdHandler);
+        // app.patch("/messages/{message_id}", this::updateMessagesByIdHandler);
+        // app.get("/accounts/{account_id}/messages", this::getMessagesbyUserHandler);
         //created endpoints above
 
         //example here  app.get("example-endpoint", this::exampleHandler);
