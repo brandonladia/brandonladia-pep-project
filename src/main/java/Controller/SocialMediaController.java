@@ -7,7 +7,9 @@ import io.javalin.http.Context;
 //import other stuff
 import Model.Account;
 import Model.Message;
-//import Service.SocialMediaService;
+import Service.AccountService;
+import Service.MessageService;
+
 //import stuff above
 
 /**
@@ -17,6 +19,13 @@ import Model.Message;
  */
 public class SocialMediaController {
 //adding stuff
+    AccountService accountService;
+    MessageService messageService;
+
+    public SocialMediaController(){
+        this.accountService = new AccountService();
+        this.messageService = new MessageService();
+    }
 
 //created above stuff
 
