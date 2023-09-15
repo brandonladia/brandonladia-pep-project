@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import Model.Message;
@@ -33,33 +34,55 @@ public class MessageDAO {
             // TODO Auto-generated catch block
             System.out.println(e.getMessage());
         }
-        
         return null;
     }
 
 //retrieve all messages
     public List<Message> getAllMessages(){
         Connection conn = ConnectionUtil.getConnection();
+        List<Message> messages = new ArrayList<>();
         String sql = "SELECT * FROM message";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                
+                Message message = new Message(
+                    rs.getInt("message_id"),
+                    rs.getInt("posted_by"),
+                    rs.getString("message_text"),
+                    rs.getLong("time_posted_epoch")
+                );
+                messages.add(message);
             }
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-        return null;
+        return messages;
     }
 
 //retrieve a message by ID
-    public Message getMessageByID(){
+    public Message getMessageByID(int id){
         Connection conn = ConnectionUtil.getConnection();
+        String sql = "SELECT * FROM message WHERE message_id = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
 
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Message message = new Message(
+                    rs.getInt("message_id"),
+                    rs.getInt("posted_by"),
+                    rs.getString("message_text"),
+                    rs.getLong("time_posted_epoch"));
+                return message;
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return null;
     }
 

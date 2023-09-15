@@ -1,13 +1,13 @@
 package Controller;
 
-import Service.SocialMediaService;
+//import Service.SocialMediaService;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
 //import other stuff
 import Model.Account;
 import Model.Message;
-import Service.SocialMediaService;
+//import Service.SocialMediaService;
 //import stuff above
 
 /**
@@ -45,14 +45,14 @@ public class SocialMediaController {
         Javalin app = Javalin.create();
         
         //creating endpoints below
-        app.post("/register", );
-        app.post("/login", );
-        app.post("/messages", );
-        app.get("/messages", );
-        app.get("/messages/{message_id}", );
-        app.delete("/messages/{message_id}", );
-        app.patch("/messages/{message_id}", );
-        app.get("/accounts/{account_id}/messages", );
+        // app.post("/register", );
+        // app.post("/login", );
+        // app.post("/messages", );
+        // app.get("/messages", );
+        // app.get("/messages/{message_id}", );
+        // app.delete("/messages/{message_id}", );
+        // app.patch("/messages/{message_id}", );
+        // app.get("/accounts/{account_id}/messages", );
         //created endpoints above
 
         //example here  app.get("example-endpoint", this::exampleHandler);
