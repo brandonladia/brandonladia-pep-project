@@ -86,8 +86,7 @@ public class SocialMediaController {
 
     //implement getAllMessagesHandler
     private void getAllMessagesHandler(Context ctx){
-        List<Message> messages = messageService.getAllMessages();
-        ctx.json(messages);
+        ctx.json(messageService.getAllMessages());
     }
 
     //implement getMessagesByIdHandler

@@ -20,7 +20,7 @@ public class MessageService {
 
 //create new message
     public Message creatMessage(Message message){
-        return messageDAO.createMessage(message);
+        return messageDAO.createMessage(null);
     }
 
 //retrieve all messages
