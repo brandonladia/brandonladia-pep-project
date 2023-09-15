@@ -83,26 +83,30 @@ public class MessageDAO {
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return null;
     }
 
 //delete a message by ID
-
-    // public Message deleteMessageByID(){
-    //     Connection conn = ConnectionUtil.getConnection();
-    //     String sql = "DELETE * FROM message WHERE message_id = ?";
-    //     try {
-    //         PreparedStatement ps = conn.prepareStatement(sql);
-
-    //         ps.executeUpdate();
-    //     } catch (SQLException e) {
-    //         // TODO Auto-generated catch block
-    //         e.printStackTrace();
-    //     }
-    //     return null;
-    // }
+//finish coding this
+//finish coding this
+    public Message deleteMessageByID(int id){
+        Connection conn = ConnectionUtil.getConnection();
+        String sql = "DELETE * FROM message WHERE message_id = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+//finish coding this
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+//finish coding this
+//finish coding this 
 
 //update a message by ID
 

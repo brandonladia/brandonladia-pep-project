@@ -35,6 +35,9 @@ public class MessageService {
     }
 
 //delete message identified by ID
+    public Message deleteMessageByID(int id){
+        return messageDAO.deleteMessageByID(id);
+    }
 
 //update message text identified by ID
 
