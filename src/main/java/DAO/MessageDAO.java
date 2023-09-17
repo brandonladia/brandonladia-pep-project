@@ -114,7 +114,7 @@ public class MessageDAO {
 //update a message by ID
 //finish coding this
 //finish coding this 
-    public boolean updateMessageById(){
+    public Message updateMessageById(){
         Connection conn = ConnectionUtil.getConnection();
         String sql = "UPDATE message SET message_text = ? WHERE message_id = ?";
         try {
@@ -124,7 +124,7 @@ public class MessageDAO {
             e.printStackTrace();
         }
 
-        return false;
+        return null;
     }
 //finish coding this
 //finish coding this 

@@ -144,7 +144,7 @@ public class SocialMediaController {
     private void deleteMessagesByIdHandler(Context ctx){
        int id = Integer.parseInt(ctx.pathParam("message_id"));
        if(messageService.getMessageByID(id) == null){
-
+        
        } else {
         ctx.json(messageService.deleteMessageByID(id));
        }
