@@ -62,7 +62,7 @@ public class SocialMediaController {
         //creating endpoints below
         app.post("/register", this::postRegisterHandler);
         app.post("/login", this::postLoginHandler);
-        // app.post("/messages", this::postMessagesHandler);
+        app.post("/messages", this::postMessagesHandler);
         app.get("/messages", this::getAllMessagesHandler);
         app.get("/messages/{message_id}", this::getMessagesByIdHandler);
         // app.delete("/messages/{message_id}", this::deleteMessagesByIdHandler);
@@ -89,7 +89,7 @@ public class SocialMediaController {
         ObjectMapper om = new ObjectMapper();
         Account account = om.readValue(ctx.body(), Account.class);
         Account newAccount = accountService.addAccount(account);
-        //needed a
+        //needed a conditional
         if(newAccount != null){
             ctx.json(newAccount);
         } else {
@@ -110,9 +110,13 @@ public class SocialMediaController {
     }
 
     //implement postMessagesHandler "createMessage()"
-    public void postMessagesHandler(Context ctx){
-
+    public void postMessagesHandler(Context ctx) throws JsonMappingException, JsonProcessingException{
+        ObjectMapper om = new ObjectMapper();
+        Message message = om.readValue(ctx.body(), Message.class);
+        Message newMessage = messageService.creatMessage(message);
+        ctx.json(newMessage);
     }
+    //complete logic above
 
     //implement getAllMessagesHandler
     private void getAllMessagesHandler(Context ctx){

@@ -20,7 +20,10 @@ public class MessageService {
 
 //create new message
     public Message creatMessage(Message message){
-        return messageDAO.createMessage(null);
+        //default below
+        return messageDAO.createMessage(message);
+        //testing code
+        //if and only if message_text is not blank, is under 255 characters and posted_by is real
     }
 //finish implementing
 
