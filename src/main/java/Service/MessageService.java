@@ -22,6 +22,7 @@ public class MessageService {
     public Message creatMessage(Message message){
         return messageDAO.createMessage(null);
     }
+//finish implementing
 
 //retrieve all messages
     public List<Message> getAllMessages(){

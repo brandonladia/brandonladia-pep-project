@@ -4,6 +4,7 @@ package Controller;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
+import java.io.Console;
 import java.util.List;
 
 //import other stuff
@@ -67,7 +68,6 @@ public class SocialMediaController {
 
         //example here  app.get("example-endpoint", this::exampleHandler);
         return app;
-//       app.start(8080);
     }
 
     /**
@@ -81,8 +81,14 @@ public class SocialMediaController {
     //implement postRegisterHandler "addAccount()"
 
     //implement postLoginHandler
+    public void postLoginHandler(Context ctx){
+
+    }
 
     //implement postMessagesHandler "createMessage()"
+    public void postMessagesHandler(Context ctx){
+
+    }
 
     //implement getAllMessagesHandler
     private void getAllMessagesHandler(Context ctx){
@@ -92,8 +98,10 @@ public class SocialMediaController {
     //implement getMessagesByIdHandler
     private void getMessagesByIdHandler(Context ctx){
     //so we can use "id" with json
-        int id = Integer.parseInt(ctx.pathParam("id"));
+        int id = Integer.parseInt(ctx.pathParam("message_id")); /* Needed to be 'message_id' instead of 'id' */
         ctx.json(messageService.getMessageByID(id));
+
+        /* Find a way to handle exceptions where the message_id doesn't exist. It throws a null pointer exception because message id of '100' doesnt exist in your db. */
     }
 
     //implement deleteMessagesByIdHandler
@@ -102,7 +110,8 @@ public class SocialMediaController {
 
     //implement getMessagesbyUserHandler
     private void getMessagesbyUserHandler(Context ctx){
-        int id = Integer.parseInt(ctx.pathParam("id"));
+        int id = Integer.parseInt(ctx.pathParam("account_id")); /* Needed to be 'account_id' insead of 'id' */
         ctx.json(messageService.getAllMessagesFromUser(id));
+        
     }
 }
