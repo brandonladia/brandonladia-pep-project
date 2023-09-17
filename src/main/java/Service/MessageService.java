@@ -27,7 +27,7 @@ public class MessageService {
         boolean test1 = message.getMessage_text().equals("");
         if(message.getMessage_text().equals("")){
             return null;
-        } else{
+        } else {
             return messageDAO.createMessage(message);
         }
         //keep working above
@@ -46,13 +46,8 @@ public class MessageService {
     }
 
 //delete message identified by ID
-    public boolean deleteMessageByID(int id){
-        boolean deleted = messageDAO.deleteMessageByID(id);
-        if(deleted){
-            return true;
-        } else {
-            return false;
-        }
+    public Message deleteMessageByID(int id){
+        return messageDAO.deleteMessageByID(id);
     }
 
 //update message text identified by ID
