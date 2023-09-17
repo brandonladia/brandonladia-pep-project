@@ -112,6 +112,12 @@ public class MessageDAO {
     public Message updateMessageById(){
         Connection conn = ConnectionUtil.getConnection();
         String sql = "UPDATE message SET message_text = ? WHERE message_id = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         return null;
     }
