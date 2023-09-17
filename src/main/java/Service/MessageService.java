@@ -47,7 +47,11 @@ public class MessageService {
 
 //delete message identified by ID
     public Message deleteMessageByID(int id){
-        return messageDAO.deleteMessageByID(id);
+        if(messageDAO.getMessageByID(id) != null){
+            return messageDAO.getMessageByID(id);
+        } else {
+            return null;
+        }
     }
 
 //update message text identified by ID
