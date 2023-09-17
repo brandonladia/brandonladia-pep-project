@@ -41,10 +41,14 @@ public Account addAccount(Account account){
 //logins
 public Account processlogin(Account account){
     Connection conn = ConnectionUtil.getConnection();
-    String sql = "SELECT * FROM account WHERE account_id = ?";
+    //if it doens't work, remove 'AND password = ?'
+    String sql = "SELECT * FROM account WHERE username = ? AND password = ?";
     try {
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setInt(1, account.getAccount_id());
+        ps.setString(1, account.getUsername());
+        //if doesn't work remove password
+        ps.setString(2, account.getPassword());
+        //remove above if doesn't work
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
             Account processAccount = new Account(
