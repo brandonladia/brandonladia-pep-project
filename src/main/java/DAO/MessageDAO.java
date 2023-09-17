@@ -91,18 +91,9 @@ public class MessageDAO {
 //delete a message by ID
 //finish coding this
 //finish coding this
-    public Message deleteMessageByID(int id){
+    public Message deleteMessageByID(){
         Connection conn = ConnectionUtil.getConnection();
         String sql = "DELETE * FROM message WHERE message_id = ?";
-        try {
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, id);
-//finish coding this
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
         return null;
     }
 //finish coding this

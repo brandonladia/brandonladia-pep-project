@@ -120,15 +120,19 @@ public class SocialMediaController {
     private void getMessagesByIdHandler(Context ctx){
     //so we can use "id" with json
         int id = Integer.parseInt(ctx.pathParam("message_id")); /* Needed to be 'message_id' instead of 'id' */
-        ctx.json(messageService.getMessageByID(id));
-        //trial and error
-
-        //trial and error
-
+        //ctx.json(messageService.getMessageByID(id));
+        if(messageService.getMessageByID(id) == null){
+            System.out.println("Message did not exist");
+        } else {
+            ctx.json(messageService.getMessageByID(id));
+        }
         /* Find a way to handle exceptions where the message_id doesn't exist. It throws a null pointer exception because message id of '100' doesnt exist in your db. */
     }
 
     //implement deleteMessagesByIdHandler
+    private void deleteMessagesByIdHandler(Context ctx){
+       
+    }
 
     //implement updateMessagesByIdHandler
 
