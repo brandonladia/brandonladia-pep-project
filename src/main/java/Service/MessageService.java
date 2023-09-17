@@ -41,6 +41,9 @@ public class MessageService {
     }
 
 //update message text identified by ID
+    public Message updateMessageById(){
+        return null;
+    }
 
 //retrieve all messages written by a particular user
     public List<Message> getAllMessagesFromUser(int id){

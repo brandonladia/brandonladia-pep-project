@@ -7,6 +7,10 @@ import io.javalin.http.Context;
 import java.io.Console;
 import java.util.List;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 //import other stuff
 import Model.Account;
 import Model.Message;
@@ -56,8 +60,8 @@ public class SocialMediaController {
         Javalin app = Javalin.create();
         
         //creating endpoints below
-        // app.post("/register", this::postRegisterHandler);
-        // app.post("/login", this::postLoginHandler);
+        app.post("/register", this::postRegisterHandler);
+        app.post("/login", this::postLoginHandler);
         // app.post("/messages", this::postMessagesHandler);
         app.get("/messages", this::getAllMessagesHandler);
         app.get("/messages/{message_id}", this::getMessagesByIdHandler);
@@ -73,16 +77,33 @@ public class SocialMediaController {
     /**
      * This is an example handler for an example endpoint.
      * @param context The Javalin Context object manages information about both the HTTP request and response.
+     * @throws JsonProcessingException
+     * @throws JsonMappingException
      */
     // private void exampleHandler(Context context) {
     //     context.json("sample text");
     // }
 
     //implement postRegisterHandler "addAccount()"
+    private void postRegisterHandler(Context ctx) throws JsonMappingException, JsonProcessingException{
+        ObjectMapper om = new ObjectMapper();
+        Account account = om.readValue(ctx.body(), Account.class);
+        Account newAccount = accountService.addAccount(account);
+        ctx.json(newAccount);
+        //complete code
+        //complete code
+    }
 
     //implement postLoginHandler
-    public void postLoginHandler(Context ctx){
-
+    public void postLoginHandler(Context ctx) throws JsonMappingException, JsonProcessingException{
+        ObjectMapper om = new ObjectMapper();
+        Account account = om.readValue(ctx.body(), Account.class);
+        Account testAccount = accountService.processLogin(account);
+        if(testAccount != null){
+            ctx.json(testAccount);
+        } else {
+            ctx.status(401);
+        }
     }
 
     //implement postMessagesHandler "createMessage()"
@@ -100,6 +121,9 @@ public class SocialMediaController {
     //so we can use "id" with json
         int id = Integer.parseInt(ctx.pathParam("message_id")); /* Needed to be 'message_id' instead of 'id' */
         ctx.json(messageService.getMessageByID(id));
+        //trial and error
+
+        //trial and error
 
         /* Find a way to handle exceptions where the message_id doesn't exist. It throws a null pointer exception because message id of '100' doesnt exist in your db. */
     }

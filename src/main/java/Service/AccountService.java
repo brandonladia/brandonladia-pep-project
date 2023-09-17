@@ -21,9 +21,7 @@ public class AccountService {
         return accountDAO.addAccount(account);
     }
 //process new login. maybe change name
-    public void processLogin(){
-        //create code
-
+    public Account processLogin(Account account){
+        return accountDAO.processlogin(account);
     }
-
 }

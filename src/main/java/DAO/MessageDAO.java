@@ -109,6 +109,9 @@ public class MessageDAO {
 //finish coding this 
 
 //update a message by ID
+    public Message updateMessageById(){
+        return null;
+    }
 
 //retrieve all messages from a particular user
     public List<Message> getAllMessagesFromUser(int id){

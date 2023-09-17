@@ -26,9 +26,8 @@ public Account addAccount(Account account){
         ps.executeUpdate();
         ResultSet pkeyResultSet = ps.getGeneratedKeys();
         if(pkeyResultSet.next()){
-//                         is it getInt() or getLong() IS ITTTTTT OR NOTTTTTT
+
             int generated_account_id = (int) pkeyResultSet.getInt(1);
-//                         neeed to knkow
             return new Account(generated_account_id, account.getUsername(), account.getPassword());
         }
 
@@ -40,8 +39,25 @@ public Account addAccount(Account account){
     }
 
 //logins
-public void processlogin(){
+public Account processlogin(Account account){
     Connection conn = ConnectionUtil.getConnection();
-    
+    String sql = "SELECT * FROM account WHERE account_id = ?";
+    try {
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, account.getAccount_id());
+        ResultSet rs = ps.executeQuery();
+        while(rs.next()){
+            Account processAccount = new Account(
+                rs.getInt("account_id"),
+                rs.getString("username"),
+                rs.getString("password")
+            );
+            return processAccount;
+        }
+    } catch (SQLException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    return null;
 }
 }
