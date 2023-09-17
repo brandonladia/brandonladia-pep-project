@@ -23,7 +23,7 @@ public class MessageService {
         //default below to pass first test case
         //return messageDAO.createMessage(message);
         //testing code below
-        //if and only if message_text is not blank, is under 255 characters and posted_by is real
+        //if and only if message_text is not blank, is under 255 characters and posted_by is real user
         boolean test1 = message.getMessage_text().equals("");
         if(message.getMessage_text().equals("")){
             return null;
