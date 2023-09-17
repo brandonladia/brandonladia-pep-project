@@ -18,7 +18,13 @@ public class AccountService {
 
 //use accountDAO to register new user
     public Account addAccount(Account account){
-        return accountDAO.addAccount(account);
+    //    return accountDAO.addAccount(account);
+    //trying code
+        if(account.getUsername() == null || account.getUsername().equals("") || account.getPassword().length() < 4){
+            return null;
+        } else {
+            return accountDAO.addAccount(account);
+        }
     }
 //process new login. maybe change name
     public Account processLogin(Account account){

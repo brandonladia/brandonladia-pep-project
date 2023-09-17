@@ -89,9 +89,11 @@ public class SocialMediaController {
         ObjectMapper om = new ObjectMapper();
         Account account = om.readValue(ctx.body(), Account.class);
         Account newAccount = accountService.addAccount(account);
-        ctx.json(newAccount);
-        //complete code
-        //complete code
+        if(newAccount != null){
+            ctx.json(newAccount);
+        } else {
+            ctx.status(400);
+        }
     }
 
     //implement postLoginHandler
