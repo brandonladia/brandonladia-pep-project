@@ -47,6 +47,7 @@ public class MessageService {
 
 //delete message identified by ID
     public Message deleteMessageByID(int id){
+    //we do this so that we can get the messageByID that was deleted
         if(messageDAO.getMessageByID(id) != null){
             return messageDAO.getMessageByID(id);
         } else {
@@ -56,6 +57,7 @@ public class MessageService {
 
 //update message text identified by ID
     public Message updateMessageById(){
+        //if and only if new message_txt is not blank and over 255 char
         return null;
     }
 

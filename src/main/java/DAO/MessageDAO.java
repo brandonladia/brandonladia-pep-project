@@ -89,8 +89,6 @@ public class MessageDAO {
     }
 
 //delete a message by ID
-//finish coding this
-//finish coding this
     public Message deleteMessageByID(int id){
         Connection conn = ConnectionUtil.getConnection();
         String sql = "DELETE * FROM message WHERE message_id = ?";
@@ -105,8 +103,6 @@ public class MessageDAO {
         }
         return null;
     }
-//finish coding this
-//finish coding this 
 
 //update a message by ID
 //finish coding this
