@@ -91,17 +91,22 @@ public class MessageDAO {
 //delete a message by ID
 //finish coding this
 //finish coding this
-    public Message deleteMessageByID(int id){
+    public boolean deleteMessageByID(int id){
         Connection conn = ConnectionUtil.getConnection();
         String sql = "DELETE * FROM message WHERE message_id = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
+            //executeUpdate returns number of rows affected
+            int affected = ps.executeUpdate();
+            if(affected > 0){
+                return true;
+            }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 //finish coding this
 //finish coding this 
@@ -109,7 +114,7 @@ public class MessageDAO {
 //update a message by ID
 //finish coding this
 //finish coding this 
-    public Message updateMessageById(){
+    public boolean updateMessageById(){
         Connection conn = ConnectionUtil.getConnection();
         String sql = "UPDATE message SET message_text = ? WHERE message_id = ?";
         try {
@@ -119,7 +124,7 @@ public class MessageDAO {
             e.printStackTrace();
         }
 
-        return null;
+        return false;
     }
 //finish coding this
 //finish coding this 
