@@ -21,14 +21,10 @@ public class MessageService {
 //create new message
     public Message creatMessage(Message message){
         //default below
-        //return messageDAO.createMessage(message);
+        return messageDAO.createMessage(message);
         //testing code
         //if and only if message_text is not blank, is under 255 characters and posted_by is real
-        if(message.getMessage_text().equals("")){
-            return null;
-        } else{
-            return messageDAO.createMessage(message);
-        }
+
         //keep working above
     }
 //finish implementing
