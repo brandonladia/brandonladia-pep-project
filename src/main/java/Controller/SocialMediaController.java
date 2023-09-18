@@ -4,9 +4,6 @@ package Controller;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
-import java.io.Console;
-import java.util.List;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
