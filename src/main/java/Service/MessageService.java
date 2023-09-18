@@ -67,22 +67,11 @@ public class MessageService {
         boolean test3 = message.getMessage_text().isBlank();
         boolean test1 = messageDAO.getMessageByID(message.getMessage_id()) == null;
         //boolean cases here?
-        List<Message> messages = messageDAO.getAllMessages();
-        messages.forEach(System.out::println);
-        System.out.println("test line " + message.toString());
         if(test1 || test2 || test3){
-            System.out.println("message failed update");
             return null;
-        } else {
-            System.out.println("Before DAO " + message.toString());
-            messageDAO.updateMessageById(message);
-            message = messageDAO.getMessageByID(message.getMessage_id());
-            //System.out.println(message);
-            System.out.println("After DAO " + message.toString());
-            return message;
-            //return messageDAO.updateMessageById(message);
         }
-        
+        System.out.println(message);
+        return messageDAO.updateMessageById(message);
     }
 
 //retrieve all messages written by a particular user
