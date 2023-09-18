@@ -66,7 +66,7 @@ public class SocialMediaController {
         app.get("/messages", this::getAllMessagesHandler);
         app.get("/messages/{message_id}", this::getMessagesByIdHandler);
         app.delete("/messages/{message_id}", this::deleteMessagesByIdHandler);
-        // app.patch("/messages/{message_id}", this::updateMessagesByIdHandler);
+        app.patch("/messages/{message_id}", this::updateMessagesByIdHandler);
         app.get("/accounts/{account_id}/messages", this::getMessagesbyUserHandler);
         //created endpoints above
 
@@ -151,6 +151,9 @@ public class SocialMediaController {
     }
 
     //implement updateMessagesByIdHandler
+    private void updateMessagesByIdHandler(Context ctx){
+        int id = Integer.parseInt(ctx.pathParam("message_id"));
+    }
 
     //implement getMessagesbyUserHandler
     private void getMessagesbyUserHandler(Context ctx){

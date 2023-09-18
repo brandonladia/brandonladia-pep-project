@@ -49,6 +49,7 @@ public class MessageService {
     public Message deleteMessageByID(int id){
     //we do this so that we can get the messageByID that was deleted
         if(messageDAO.getMessageByID(id) != null){
+            messageDAO.deleteMessageByID(id);
             return messageDAO.getMessageByID(id);
         } else {
             return null;
@@ -56,9 +57,15 @@ public class MessageService {
     }
 
 //update message text identified by ID
-    public Message updateMessageById(){
+    public Message updateMessageById(Message message){
         //if and only if new message_txt is not blank and over 255 char
-        return null;
+        boolean test1 = message.getMessage_text().equals("");
+        //test cases above
+        if(messageDAO.getMessageByID(message.getMessage_id()) != null){
+            return messageDAO.getMessageByID(message.getMessage_id());
+        } else {
+            return null;
+        }
     }
 
 //retrieve all messages written by a particular user
