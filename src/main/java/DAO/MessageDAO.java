@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.h2.command.Prepared;
-
 import Model.Message;
 import Util.ConnectionUtil;
 
@@ -124,7 +122,9 @@ public class MessageDAO {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
+        //or here?
+        
+        //or here?
         return null;
     }
 //finish coding this
