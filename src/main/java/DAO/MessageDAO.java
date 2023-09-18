@@ -118,31 +118,8 @@ public class MessageDAO {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        //or implement it below here?
-        //or implement it below here?
-        // String sql2 = "SELECT * FROM message WHERE message_id = ?";
-        // try {
-        //     PreparedStatement ps2 = conn.prepareStatement(sql2);
-        //     ps2.setInt(1, message.getMessage_id());
-        //     ResultSet rs = ps2.executeQuery();
-        //     while(rs.next()){
-        //         Message newMessage = new Message(
-        //             rs.getInt("message_id"),
-        //             rs.getInt("posted_by"),
-        //             rs.getString("message_text"),
-        //             rs.getLong("time_posted_epoch"));
-        //         return newMessage;
-        //     }
-        // } catch (SQLException e) {
-        //     // TODO Auto-generated catch block
-        //     e.printStackTrace();
-        // }
-        //or here?
-        //or here?
-        //return null;
     }
-//finish coding this
-//finish coding this 
+
 
 //retrieve all messages from a particular user
     public List<Message> getAllMessagesFromUser(int id){
