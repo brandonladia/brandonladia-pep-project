@@ -159,7 +159,7 @@ public class SocialMediaController {
         if(updateMessage != null){
             ctx.json(updateMessage);
         } else {
-            ctx.status(400);
+            ctx.status(404);
         }
     }
 

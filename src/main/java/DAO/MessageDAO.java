@@ -115,15 +115,12 @@ public class MessageDAO {
             ps.executeUpdate();
             //implement retrieve message by ID
             //implement retrieve message by ID
-
-            //implement retrieve message by ID
-            //implement retrieve message by ID
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        //or here?
-        //or here?
+        //or implement it below here?
+        //or implement it below here?
         String sql2 = "SELECT * FROM message WHERE message_id = ?";
         try {
             PreparedStatement ps2 = conn.prepareStatement(sql2);
