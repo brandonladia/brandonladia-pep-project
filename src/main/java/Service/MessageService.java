@@ -61,13 +61,13 @@ public class MessageService {
 //update message text identified by ID
     public Message updateMessageById(Message message){
         //to make it run
-        // return messageDAO.updateMessageById(message);
         //boolean cases here?
-        boolean test2 = message.getMessage_text().length() > 255;
-        boolean test3 = message.getMessage_text().isBlank();
-        boolean test1 = messageDAO.getMessageByID(message.getMessage_id()) == null;
+        // boolean test2 = message.getMessage_text().length() > 255;
+        // boolean test3 = message.getMessage_text().isBlank();
+        // boolean test1 = messageDAO.getMessageByID(message.getMessage_id()) == null;
         //boolean cases here?
-        if(test1 || test2 || test3){
+        int messageLength = message.message_text.length();
+        if(message == null || messageLength <= 0 || messageLength >= 255){
             return null;
         }
         System.out.println(message);

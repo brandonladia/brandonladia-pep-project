@@ -69,7 +69,6 @@ public class MessageDAO {
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
-
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 Message message = new Message(
