@@ -115,6 +115,11 @@ public class MessageDAO {
             ps.setString(1, message.getMessage_text());
             ps.setInt(2, message.getMessage_id());
             ps.executeUpdate();
+            //implement retrieve message by ID
+            //implement retrieve message by ID
+
+            //implement retrieve message by ID
+            //implement retrieve message by ID
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
