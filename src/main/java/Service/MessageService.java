@@ -65,7 +65,7 @@ public class MessageService {
         //boolean cases here?
         boolean test2 = message.getMessage_text().length() > 255;
         boolean test3 = message.getMessage_text().isBlank();
-        boolean test1 = messageDAO.getMessageByID(message.getMessage_id()) != null;
+        boolean test1 = messageDAO.getMessageByID(message.getMessage_id()) == null;
         //boolean cases here?
         List<Message> messages = messageDAO.getAllMessages();
         messages.forEach(System.out::println);
