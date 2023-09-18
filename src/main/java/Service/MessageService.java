@@ -62,12 +62,11 @@ public class MessageService {
     public Message updateMessageById(Message message){
         //to make it run
         //boolean cases here?
-        // boolean test2 = message.getMessage_text().length() > 255;
-        // boolean test3 = message.getMessage_text().isBlank();
-        // boolean test1 = messageDAO.getMessageByID(message.getMessage_id()) == null;
+        boolean test2 = message.getMessage_text().length() > 255;
+        boolean test3 = message.getMessage_text().isBlank();
+        boolean test1 = messageDAO.getMessageByID(message.getMessage_id()) == null;
         //boolean cases here?
-        int messageLength = message.message_text.length();
-        if(message == null || messageLength <= 0 || messageLength >= 255){
+        if(message == null || test3 || test2){
             return null;
         }
         System.out.println(message);
