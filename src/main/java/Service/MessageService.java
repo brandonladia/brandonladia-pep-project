@@ -69,7 +69,7 @@ public class MessageService {
         //boolean cases here?
         List<Message> messages = messageDAO.getAllMessages();
         messages.forEach(System.out::println);
-        System.out.println("anything" + message.toString() + test1);
+        System.out.println("test line " + message.toString());
         if(test1 || test2 || test3){
             System.out.println("message failed update");
             return null;
@@ -77,7 +77,7 @@ public class MessageService {
             System.out.println("Before DAO " + message.toString());
             messageDAO.updateMessageById(message);
             message = messageDAO.getMessageByID(message.getMessage_id());
-            System.out.println(message);
+            //System.out.println(message);
             System.out.println("After DAO " + message.toString());
             return message;
             //return messageDAO.updateMessageById(message);
