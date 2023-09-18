@@ -43,10 +43,8 @@ public class MessageService {
     
 //retrieve message by ID
     public Message getMessageByID(int id){
-        if(messageDAO.getMessageByID(id) == null){
-            return null;
-        }
-        return messageDAO.getMessageByID(id);
+        Message getMessage = messageDAO.getMessageByID(id);
+        return getMessage;
     }
 
 //delete message identified by ID
