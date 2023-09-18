@@ -105,42 +105,41 @@ public class MessageDAO {
 //update a message by ID
 //finish coding this
 //finish coding this 
-    public Message updateMessageById(Message message){
+    public void updateMessageById(Message message){
         Connection conn = ConnectionUtil.getConnection();
-        String sql = "UPDATE message SET message_text = ? WHERE message_id = ?";
+        String sql = "UPDATE message SET message_text = ?, time_posted_epoch = ? WHERE message_id = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, message.getMessage_text());
-            ps.setInt(2, message.getMessage_id());
+            ps.setLong(2, message.getTime_posted_epoch());
+            ps.setInt(3, message.getMessage_id());
             ps.executeUpdate();
-            //implement retrieve message by ID
-            //implement retrieve message by ID
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
         //or implement it below here?
         //or implement it below here?
-        String sql2 = "SELECT * FROM message WHERE message_id = ?";
-        try {
-            PreparedStatement ps2 = conn.prepareStatement(sql2);
-            ps2.setInt(1, message.getMessage_id());
-            ResultSet rs = ps2.executeQuery();
-            while(rs.next()){
-                Message newMessage = new Message(
-                    rs.getInt("message_id"),
-                    rs.getInt("posted_by"),
-                    rs.getString("message_text"),
-                    rs.getLong("time_posted_epoch"));
-                return newMessage;
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        // String sql2 = "SELECT * FROM message WHERE message_id = ?";
+        // try {
+        //     PreparedStatement ps2 = conn.prepareStatement(sql2);
+        //     ps2.setInt(1, message.getMessage_id());
+        //     ResultSet rs = ps2.executeQuery();
+        //     while(rs.next()){
+        //         Message newMessage = new Message(
+        //             rs.getInt("message_id"),
+        //             rs.getInt("posted_by"),
+        //             rs.getString("message_text"),
+        //             rs.getLong("time_posted_epoch"));
+        //         return newMessage;
+        //     }
+        // } catch (SQLException e) {
+        //     // TODO Auto-generated catch block
+        //     e.printStackTrace();
+        // }
         //or here?
         //or here?
-        return null;
+        //return null;
     }
 //finish coding this
 //finish coding this 
