@@ -90,10 +90,10 @@ public class SocialMediaController {
         Account account = om.readValue(ctx.body(), Account.class);
         Account newAccount = accountService.addAccount(account);
         //needed a conditional
-        if(newAccount != null){
-            ctx.json(newAccount);
-        } else {
+        if(newAccount == null){
             ctx.status(400);
+        } else {
+            ctx.json(newAccount);
         }
     }
 
@@ -155,7 +155,6 @@ public class SocialMediaController {
         ObjectMapper om = new ObjectMapper();
         Message message = om.readValue(ctx.body(), Message.class);
         Message updateMessage = messageService.updateMessageById(message);
-        int id = Integer.parseInt(ctx.pathParam("message_id"));
         if(updateMessage != null){
             ctx.json(updateMessage);
         } else {

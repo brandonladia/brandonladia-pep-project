@@ -24,8 +24,10 @@ public class MessageService {
         //return messageDAO.createMessage(message);
         //testing code below
         //if and only if message_text is not blank, is under 255 characters and posted_by is real user
-        boolean test1 = message.getMessage_text().equals("");
-        if(message.getMessage_text().equals("")){
+        boolean test1 = message.getMessage_text().isEmpty();
+        boolean test2 = message.getMessage_text().length() < 255; //rewrite
+        boolean test3;
+        if(test1){
             return null;
         } else {
             return messageDAO.createMessage(message);
@@ -63,12 +65,12 @@ public class MessageService {
         //boolean cases here?
         boolean test1 = messageDAO.getMessageByID(message.getMessage_id()) != null;
         boolean test2 = message.getMessage_text().length() > 255;
-        boolean test3 = message.getMessage_text().equals("");
+        boolean test3 = message.getMessage_text().isBlank();
         //boolean cases here?
         if(test1 || test2 || test3){
-            return messageDAO.updateMessageById(message);
-        } else {
             return null;
+        } else {
+            return messageDAO.updateMessageById(message);
         }
         
     }
