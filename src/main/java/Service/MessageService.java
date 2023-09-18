@@ -63,7 +63,7 @@ public class MessageService {
         //to make it run
         // return messageDAO.updateMessageById(message);
         //boolean cases here?
-        boolean test1 = messageDAO.getMessageByID(message.getMessage_id()) != null;
+        boolean test1 = messageDAO.getMessageByID(message.getMessage_id()) == null;
         boolean test2 = message.getMessage_text().length() > 255;
         boolean test3 = message.getMessage_text().isBlank();
         //boolean cases here?
