@@ -147,6 +147,7 @@ public class SocialMediaController {
         
        } else {
         ctx.json(messageService.deleteMessageByID(id));
+        System.out.println("The deleted message " + messageService.getMessageByID(id));
        }
     }
 
