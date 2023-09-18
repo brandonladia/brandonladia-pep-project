@@ -58,14 +58,19 @@ public class MessageService {
 
 //update message text identified by ID
     public Message updateMessageById(Message message){
-        //if and only if new message_txt is not blank and over 255 char
-        boolean test1 = message.getMessage_text().equals("");
-        //test cases above
-        if(messageDAO.getMessageByID(message.getMessage_id()) != null){
-            return messageDAO.getMessageByID(message.getMessage_id());
+        //to make it run
+        // return messageDAO.updateMessageById(message);
+        //boolean cases here?
+        boolean test1 = messageDAO.getMessageByID(message.getMessage_id()) != null;
+        boolean test2 = message.getMessage_text().length() > 255;
+        boolean test3 = message.getMessage_text().equals("");
+        //boolean cases here?
+        if(test1 || test2 || test3){
+            return messageDAO.updateMessageById(message);
         } else {
             return null;
         }
+        
     }
 
 //retrieve all messages written by a particular user

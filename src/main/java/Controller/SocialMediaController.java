@@ -151,8 +151,16 @@ public class SocialMediaController {
     }
 
     //implement updateMessagesByIdHandler
-    private void updateMessagesByIdHandler(Context ctx){
+    private void updateMessagesByIdHandler(Context ctx) throws JsonMappingException, JsonProcessingException{
+        ObjectMapper om = new ObjectMapper();
+        Message message = om.readValue(ctx.body(), Message.class);
+        Message updateMessage = messageService.updateMessageById(message);
         int id = Integer.parseInt(ctx.pathParam("message_id"));
+        if(updateMessage != null){
+            ctx.json(updateMessage);
+        } else {
+            ctx.status(400);
+        }
     }
 
     //implement getMessagesbyUserHandler
