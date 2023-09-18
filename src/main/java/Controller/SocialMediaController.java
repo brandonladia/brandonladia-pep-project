@@ -160,6 +160,7 @@ public class SocialMediaController {
             ctx.json(updateMessage);
         } else {
             ctx.status(404);
+            //change to 400 later to pass 3 cases
         }
     }
 
