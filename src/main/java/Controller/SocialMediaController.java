@@ -93,6 +93,7 @@ public class SocialMediaController {
         if(newAccount == null){
             ctx.status(400);
         } else {
+            System.out.println("New account number " + account.getAccount_id());
             ctx.json(newAccount);
         }
     }
@@ -103,6 +104,7 @@ public class SocialMediaController {
         Account account = om.readValue(ctx.body(), Account.class);
         Account testAccount = accountService.processLogin(account);
         if(testAccount != null){
+            System.out.println("Account number " + account.getAccount_id());
             ctx.json(testAccount);
         } else {
             ctx.status(401);
@@ -115,6 +117,7 @@ public class SocialMediaController {
         Message message = om.readValue(ctx.body(), Message.class);
         Message newMessage = messageService.creatMessage(message);
         if(newMessage != null){
+            System.out.println("Message number " + message.getMessage_id());
             ctx.json(newMessage);
         } else {
             ctx.status(400);
@@ -141,11 +144,13 @@ public class SocialMediaController {
     }
 
     //implement deleteMessagesByIdHandler
+    //print out the deleted message
     private void deleteMessagesByIdHandler(Context ctx){
        int id = Integer.parseInt(ctx.pathParam("message_id"));
        if(messageService.getMessageByID(id) == null){
         
        } else {
+        System.out.println("The deleted message " + messageService.getMessageByID(id));
         ctx.json(messageService.deleteMessageByID(id));
        }
     }
